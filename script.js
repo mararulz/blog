@@ -1,62 +1,58 @@
-// Animación sofisticada del nombre (solo una vez)
-function startNameAnimation() {
+// Animación del título con dos escenas repetitivas
+function startTitleAnimation() {
     const brandName = document.getElementById('animated-name');
     const brandSlogan = document.getElementById('animated-slogan');
     
-    // Inicialmente vacío
-    brandSlogan.textContent = '';
+    let isFirstScene = true;
     
-    // Secuencia de animación
-    setTimeout(() => {
-        // Paso 1: Mostrar "Mara Rulz"
-        brandName.textContent = 'Mara Rulz';
-        brandName.style.opacity = '1';
-        
-        setTimeout(() => {
-            // Paso 2: Transformar la "l" en "i" con efecto
-            const nameText = brandName.textContent;
-            const lastLetter = nameText[nameText.length - 1];
+    // Función para cambiar entre escenas
+    function changeScene() {
+        if (isFirstScene) {
+            // Primera escena: "@mararulz"
+            brandName.textContent = '@mararulz';
+            brandName.classList.add('animated-title');
             
-            if (lastLetter === 'z') {
-                // Crear efecto de transformación letra por letra
-                transformLtoI();
-            }
-        }, 1500);
+            setTimeout(() => {
+                brandName.classList.remove('animated-title');
+            }, 500);
+        } else {
+            // Segunda escena: "Mara Ruiz"
+            brandName.textContent = 'Mara Ruiz';
+            brandName.classList.add('animated-title');
+            
+            setTimeout(() => {
+                brandName.classList.remove('animated-title');
+            }, 500);
+        }
         
-    }, 500);
+        isFirstScene = !isFirstScene;
+    }
+    
+    // Iniciar la animación inmediatamente
+    changeScene();
+    
+    // Configurar intervalo para cambiar cada 5 segundos
+    setInterval(changeScene, 5000);
 }
 
-function transformLtoI() {
-    const brandName = document.getElementById('animated-name');
-    const brandSlogan = document.getElementById('animated-slogan');
+// Ocultar header al hacer scroll hacia abajo
+function initScrollHideHeader() {
+    const header = document.getElementById('header');
+    let lastScrollTop = 0;
     
-    // Efecto de desvanecimiento de la "l"
-    brandName.style.opacity = '0.5';
-    
-    setTimeout(() => {
-        // Reemplazar "Rulz" por "Ruiz"
-        brandName.textContent = 'Mara Ruiz';
-        brandName.style.opacity = '1';
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        // Mostrar primer slogan
-        setTimeout(() => {
-            brandSlogan.textContent = 'Its Ruiz not Rulz';
-            brandSlogan.style.opacity = '1';
-            brandSlogan.style.color = '#f7337c';
-            brandSlogan.style.fontWeight = '600';
-            
-            // Mostrar slogan final después de un tiempo
-            setTimeout(() => {
-                brandSlogan.style.opacity = '0';
-                setTimeout(() => {
-                    brandSlogan.textContent = 'Psicología con sentido';
-                    brandSlogan.style.opacity = '1';
-                    brandSlogan.style.color = '';
-                    brandSlogan.style.fontWeight = '400';
-                }, 500);
-            }, 2000);
-        }, 800);
-    }, 600);
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+            // Scroll hacia abajo
+            header.classList.add('hidden');
+        } else {
+            // Scroll hacia arriba
+            header.classList.remove('hidden');
+        }
+        
+        lastScrollTop = scrollTop;
+    });
 }
 
 // Menu mobile toggle
@@ -157,9 +153,9 @@ function initPageLoad() {
         document.body.style.transition = 'opacity 0.8s ease-in';
         document.body.style.opacity = '1';
         
-        // Iniciar animación del nombre después de la carga
+        // Iniciar animación del título después de la carga
         setTimeout(() => {
-            startNameAnimation();
+            startTitleAnimation();
         }, 1000);
     }, 100);
 }
@@ -167,6 +163,7 @@ function initPageLoad() {
 // Inicializar todas las funcionalidades cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
     initPageLoad();
+    initScrollHideHeader();
     initMobileMenu();
     initSmoothScroll();
     initScrollAnimations();
@@ -175,10 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Prevenir animación en navegación hacia atrás
     if (performance.navigation.type === 2) {
         document.body.style.opacity = '1';
-        const brandName = document.getElementById('animated-name');
-        const brandSlogan = document.getElementById('animated-slogan');
-        brandName.textContent = 'Mara Ruiz';
-        brandSlogan.textContent = 'Psicología con sentido';
     }
 });
 
