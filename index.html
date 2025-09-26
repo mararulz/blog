@@ -1,1 +1,143 @@
-hola
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mara Ruiz - Psicología con Sentido</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="https://raw.githubusercontent.com/mararulz/blog/2ca0974da33e932a6f816dec14ec1e47f73790d0/mara.svg" alt="Mara Ruiz Logo" class="logo">
+                <div class="brand-text">
+                    <h1 class="brand-name" id="animated-name">Mara Rulz</h1>
+                    <p class="brand-slogan" id="animated-slogan"></p>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Psicología, Espiritualidad y Crecimiento Personal</h2>
+            <p class="hero-description">Explorando patrones familiares, karma, tarot, astrología y el camino hacia la sanación holística.</p>
+            <div class="hero-buttons">
+                <a href="#blog" class="btn btn-primary">Leer Blog</a>
+                <a href="#servicios" class="btn btn-secondary">Conocer Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Últimos Artículos</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="card-category">Patrones Familiares</div>
+                    <h3 class="card-title">Comprendiendo los patrones transgeneracionales</h3>
+                    <p class="card-excerpt">Cómo nuestras historias familiares influyen en nuestro presente y formas de liberarnos de cargas ancestrales.</p>
+                    <a href="#" class="card-link">Leer más</a>
+                </article>
+                <article class="blog-card">
+                    <div class="card-category">Astrología</div>
+                    <h3 class="card-title">La luna en tu carta astral: emociones y subconsciente</h3>
+                    <p class="card-excerpt">Descubre cómo la posición lunar influye en tu mundo emocional y tus relaciones más profundas.</p>
+                    <a href="#" class="card-link">Leer más</a>
+                </article>
+                <article class="blog-card">
+                    <div class="card-category">Karma</div>
+                    <h3 class="card-title">Karma y relaciones: encuentros que trascienden</h3>
+                    <p class="card-excerpt">Understanding the spiritual contracts that bring people together and the lessons they carry.</p>
+                    <a href="#" class="card-link">Leer más</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-mi" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2 class="section-title">Sobre Mara Ruiz</h2>
+                    <p>Psicóloga especializada en enfoques holísticos que integran la psicología tradicional con sabiduría espiritual. Mi misión es guiarte en el camino del autoconocimiento y la sanación integral.</p>
+                    <p>Con experiencia en terapia psicológica, lectura de tarot evolutivo y análisis astrológico, busco brindar herramientas para el crecimiento personal y espiritual.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">YouTube</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">TikTok</a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <span>Imagen de Mara Ruiz</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Terapia Psicológica</h3>
+                    <p>Sesiones individuales de terapia integrativa con enfoque holístico.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Lectura de Tarot Evolutivo</h3>
+                    <p>Consultas de tarot enfocadas en el crecimiento y autoconocimiento.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Análisis Astrológico</h3>
+                    <p>Estudio de carta natal y tránsitos para comprensión personal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Mensaje" rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Mara Ruiz - Psicología con Sentido. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
